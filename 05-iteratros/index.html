@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterators</title>
+</head>
+
+<body>
+    <h2>Iterators</h2>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+
+
+
+        console.log('iterators');
+
+
+        let numbers = ["Robert", "Castillo", "Castellano", 4, 5, 6, 7, 8, 9]
+
+        let iterator = numbers[Symbol.iterator]()
+
+        console.group('iterator');
+        console.log(iterator);
+
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+        let next = iterator.next()
+        while (!next.done) {
+            console.log(next);
+            next = iterator.next()
+        }
+        console.groupEnd('iterator');
+
+        console.group('generator');
+
+
+        function* myGenerator() {
+            yield 'hola mundo'
+            yield 'hola iterators'
+            yield 'hola generators'
+        }
+
+        function cuadrado(value) {
+            
+            return new Promise((res, rej) => {
+                res(
+                    {
+                        value,
+                        cuadrado: value * value
+                    }
+                )
+            })
+            // setTimeout(() => {
+
+
+            // }, Math.random() * 2000);
+        }
+
+        function* myGenerator2() {
+            yield cuadrado(2)
+            yield cuadrado(2)
+            yield cuadrado(2)
+        }
+
+        let gen = myGenerator()
+        let gen2 = myGenerator2()
+        console.log(gen);
+        console.log(gen2);
+
+        // console.log('gen.next()');
+        // console.log(gen.next());
+        // console.log(gen.next());
+        // console.log(gen.next());
+
+        console.log('for y of gen');
+
+        for (y of gen) {
+            console.log(y);
+        }
+
+        console.log('for y of gen2');
+
+        for (y of gen2) {
+            console.log(y);
+        }
+
+
+
+        console.groupEnd('generator');
+
+
+    </script>
+</body>
+
+</html>

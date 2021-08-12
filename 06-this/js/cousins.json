@@ -1,0 +1,32 @@
+[
+    {
+        "name":"Robert",
+        "age":20
+    },
+    {
+        "name":"Angela",
+        "age":17
+    },
+    {
+        "name":"Emerson",
+        "age":15,
+        "prop":null,
+        "bool":true,
+        "obj":{
+            "objarray":[
+                {
+                    "prop":"yeahh"
+                }
+            ]
+        },
+        "myarray":[
+            {
+                "prop":"yeahh"
+            }
+        ]
+    },
+    {
+        "name":"Daniel",
+        "age":12
+    }
+]
