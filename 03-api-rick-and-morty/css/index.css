@@ -1,0 +1,44 @@
+
+
+
+#caja {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.spinner{
+    z-index: 999;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 0.75rem solid rgba(0, 0, 0, 0.1);
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    border-left-color: var(--bs-primary);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#btnTodos{
+    width: fit-content;
+    bottom: 4rem;
+    left: 8rem;
+}

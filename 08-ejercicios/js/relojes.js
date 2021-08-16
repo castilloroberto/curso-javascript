@@ -1,20 +1,60 @@
-export function start(target,btnDisable) {
-    target.disabled = true;
-    btnDisable.disabled = false;
-} 
+import { d } from "./constantes.js"
 
+export function startReloj(reloj,btnstart,btnStop) {
 
-export function startTimer(element) {
+    reloj = d.querySelector(reloj)
+    let interval;
     
-    function timer() {
-        element.textContent = new Date().toLocaleTimeString()
-    }
-    const interval = setInterval(timer,1000);
+    d.addEventListener('click',({target})=>{
+        
+        if (target.matches(btnstart) ) {
+            
+            reloj.textContent = new Date().toLocaleTimeString();    
+            interval = setInterval(() => {
+
+                reloj.textContent = new Date().toLocaleTimeString();    
+
+            },1000)
+
+            disableBtn(target,btnStop)
+        }
+
+        if (target.matches(btnStop) ) {
+         
+            clearInterval(interval)
+            disableBtn(target,btnstart)
+        }
+        
+        
+    })
     
-    function stopTimer() {
-        clearInterval(interval)
-    }
     
-    return stopTimer 
+     
 }
 
+function disableBtn(target,btnDisable) {
+    target.disabled = true;
+    d.querySelector(btnDisable).disabled = false;
+}
+
+export function startAlarma(audio,btnStart,btnStop) {
+
+    audio = d.querySelector(audio)
+    d.addEventListener('click',({target}) => {
+
+
+        if (target.matches(btnStart)) {
+
+            audio.play()
+            disableBtn(target,btnStop)
+            
+        }
+        
+        if (target.matches(btnStop)) {
+            
+            disableBtn(target,btnStart)
+            audio.pause()
+        }
+    })
+    
+}
