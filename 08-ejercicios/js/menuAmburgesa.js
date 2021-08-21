@@ -10,7 +10,7 @@ export function menuAmburgesa(menu,btn,links) {
             
             menu.classList.toggle('menu-visible')
     
-            btn.textContent = menu.classList.contains('menu-visible') ? 'X' : '#'
+            btn.textContent = menu.classList.contains('menu-visible') ? '❌' : '◾◾◾'
             
         }
     

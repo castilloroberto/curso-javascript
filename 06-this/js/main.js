@@ -326,7 +326,7 @@ const $myList = document.getElementById('mylist'),
 
 
 
-const items = Array.from({length:50},(v,k) => k)
+const items = Array.from({length:50},(v,k) => k+1)
 
 
 const spreadArray = [...Array(50)].map( () => (
